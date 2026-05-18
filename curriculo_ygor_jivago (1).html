@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo – Ygor Jivago</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { margin: 0; size: A4; }
+
+  html, body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .page {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    display: flex;
+  }
+
+  /* COLUNA ESQUERDA */
+  .sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: #2b2b2b;
+    color: #fff;
+    padding: 36px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .sidebar-header {
+    text-align: left;
+    padding-bottom: 4px;
+  }
+
+  .sidebar-header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .sidebar-header .subtitle {
+    font-size: 10.5px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c0392b;
+    border-bottom: 1px solid #444;
+    padding-bottom: 7px;
+    margin-bottom: 14px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 13px;
+  }
+
+  .contact-item .icon {
+    width: 18px;
+    min-width: 18px;
+    text-align: center;
+    color: #c0392b;
+    margin-top: 1px;
+  }
+
+  .contact-item .info {
+    font-size: 12.5px;
+    color: #ccc;
+    line-height: 1.5;
+    word-break: break-all;
+  }
+
+  .skill-item {
+    margin-bottom: 11px;
+  }
+
+  .skill-name {
+    font-size: 12.5px;
+    color: #ccc;
+    margin-bottom: 5px;
+  }
+
+  .skill-bar {
+    height: 5px;
+    background: #444;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: #c0392b;
+    border-radius: 3px;
+  }
+
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 11px;
+  }
+
+  .lang-name { font-size: 13px; color: #ccc; }
+  .lang-level { font-size: 11.5px; color: #999; }
+
+  /* COLUNA DIREITA */
+  .main {
+    flex: 1;
+    padding: 38px 36px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .main-header {
+    border-bottom: 3px solid #c0392b;
+    padding-bottom: 16px;
+  }
+
+  .main-header h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #2b2b2b;
+    line-height: 1.1;
+  }
+
+  .main-header .role {
+    font-size: 13.5px;
+    color: #c0392b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+  }
+
+  .section-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #2b2b2b;
+    border-bottom: 2px solid #c0392b;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+  }
+
+  .entry {
+    margin-bottom: 18px;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .entry-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #2b2b2b;
+  }
+
+  .entry-date {
+    font-size: 12px;
+    color: #999;
+    white-space: nowrap;
+  }
+
+  .entry-org {
+    font-size: 12.5px;
+    color: #c0392b;
+    margin-bottom: 6px;
+    margin-top: 2px;
+    font-weight: 600;
+  }
+
+  .entry-desc {
+    font-size: 12.5px;
+    color: #555;
+    line-height: 1.65;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .tag {
+    background: #f0f0f0;
+    color: #555;
+    font-size: 10.5px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .cert-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c0392b;
+    margin-top: 6px;
+    min-width: 6px;
+  }
+
+  .cert-text {
+    font-size: 12.5px;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  @media print {
+    body { background: none; padding: 0; }
+    .page { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+
+
+    <!-- CONTATO -->
+    <div>
+      <div class="section-label">Contato</div>
+
+      <div class="contact-item">
+        <div class="icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 11.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="info">(86) 99482-2455</div>
+      </div>
+
+      <div class="contact-item">
+        <div class="icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="info">ygorgivagooo@gmail.com</div>
+      </div>
+
+      <div class="contact-item">
+        <div class="icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div class="info">linkedin.com/in/ygor-jivago</div>
+      </div>
+
+      <div class="contact-item">
+        <div class="icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </div>
+        <div class="info">github.com/ylapiy</div>
+      </div>
+
+      <div class="contact-item">
+        <div class="icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="info">Teresina, Piauí</div>
+      </div>
+    </div>
+
+    <!-- COMPETÊNCIAS -->
+    <div>
+      <div class="section-label">Back-End</div>
+      <div class="skill-item"><div class="skill-name">Java / Spring Boot</div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Node.js / Fastify</div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Python</div><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
+    </div>
+
+    <div>
+      <div class="section-label">Banco de Dados</div>
+      <div class="skill-item"><div class="skill-name">PostgreSQL / PostGIS</div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">MySQL</div><div class="skill-bar"><div class="skill-fill" style="width:74%"></div></div></div>
+    </div>
+
+    <div>
+      <div class="section-label">Ferramentas / Infra</div>
+      <div class="skill-item"><div class="skill-name">Docker / OpenShift</div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Git / GitHub</div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Linux</div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Power BI</div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+    </div>
+
+    <div>
+      <div class="section-label">Front-end / Mobile</div>
+      <div class="skill-item"><div class="skill-name">HTML / CSS / JavaScript</div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-item"><div class="skill-name">Flutter</div><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
+    </div>
+
+    <div>
+      <div class="section-label">Soft Skills</div>
+      <div style="margin-top:4px; line-height:1.9;">
+        <span style="color:#ccc; font-size:11px;">· Resolução de Problemas</span><br>
+        <span style="color:#ccc; font-size:11px;">· Proatividade</span><br>
+        <span style="color:#ccc; font-size:11px;">· Comunicação Técnica</span><br>
+        <span style="color:#ccc; font-size:11px;">· Aprendizado Contínuo</span><br>
+        <span style="color:#ccc; font-size:11px;">· Autonomia</span><br>
+        <span style="color:#ccc; font-size:11px;">· Foco em Resultados</span>
+      </div>
+    </div>
+
+    <!-- IDIOMAS -->
+    <div>
+      <div class="section-label">Idiomas</div>
+      <div class="lang-item"><span class="lang-name">Português</span><span class="lang-level">Nativo</span></div>
+      <div class="lang-item"><span class="lang-name">Inglês</span><span class="lang-level">Avançado</span></div>
+      <div class="lang-item"><span class="lang-name">Italiano</span><span class="lang-level">Básico</span></div>
+    </div>
+
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="main-header">
+      <h2>YGOR JIVAGO</h2>
+      <div class="role">Estudante de Engenharia de Software &nbsp;|&nbsp; Desenvolvedor Backend</div>
+    </div>
+
+    <!-- RESUMO -->
+    <div>
+      <div class="section-title">Resumo Profissional</div>
+      <p class="entry-desc">
+        Desenvolvedor Backend com experiência em Node.js e Java, focado na criação de APIs escaláveis e integração de sistemas. Atuou em projetos reais para instituições de Teresina (iCEV, HuUFPI) e clientes freelancer, entregando soluções com PostgreSQL, PostGIS e Google Drive API. Experiência com infraestrutura de containers (Docker/OpenShift) e análise de dados (Power BI). Estudante de Engenharia de Software buscando oportunidade de estágio para contribuir com soluções de impacto real.
+      </p>
+    </div>
+
+    <!-- EXPERIÊNCIA PROFISSIONAL -->
+    <div>
+      <div class="section-title">Experiência Profissional</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Monitor de Análise de Requisitos</div>
+          <div class="entry-date">Fev 2026 – Mai 2026</div>
+        </div>
+        <div class="entry-org">iCEV – Instituto de Ensino Superior</div>
+        <div class="entry-desc">
+          Atuou como monitor da disciplina de Análise de Requisitos, auxiliando alunos na compreensão de técnicas de levantamento, documentação e validação de requisitos de software, contribuindo para o desenvolvimento acadêmico da turma.
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Assistente de Python</div>
+          <div class="entry-date">Mar 2025 – Jul 2025</div>
+        </div>
+        <div class="entry-org">Freelancer</div>
+        <div class="entry-desc">
+          Apoio a alunos do curso de Computação da USP – São Paulo na resolução de exercícios e fixação de conceitos de Python, contribuindo para a evolução técnica dos estudantes atendidos.
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Desenvolvedor Backend – NortePlan</div>
+          <div class="entry-date">Jul 2025 – Out 2025</div>
+        </div>
+        <div class="entry-org">Freelancer</div>
+        <div class="entry-desc">
+          Desenvolveu o backend completo da NortePlan com Node.js e PostgreSQL, estruturando o gerenciamento dos bancos de dados corporativos e o controle de arquivos dos projetos. Otimizou consultas no banco, reduzindo o tempo de resposta do sistema e melhorando a experiência dos usuários.
+        </div>
+        <div class="tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Desenvolvedor Web – Sites de Advocacia</div>
+        </div>
+        <div class="entry-org">Freelancer</div>
+        <div class="entry-desc">
+          Criação de sites institucionais responsivos para advogados, substituindo a ausência de presença digital dos clientes por páginas profissionais e funcionais entregues dentro do prazo.
+        </div>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMAÇÃO -->
+    <div>
+      <div class="section-title">Formação Acadêmica</div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Bacharelado em Engenharia de Software</div>
+          <div class="entry-date">Jan 2024 – Jan 2028</div>
+        </div>
+        <div class="entry-org">CEV – Instituto de Ensino Superior</div>
+      </div>
+    </div>
+
+    <!-- PROJETOS -->
+    <div>
+      <div class="section-title">Projetos em Destaque</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">DashBoard-HuUFPI</div>
+          <div class="entry-date">Set 2025 – Nov 2025</div>
+        </div>
+        <div class="entry-org">Projeto Acadêmico · iCEV – Instituto de Ensino Superior · Teresina, PI</div>
+        <div class="entry-desc">
+          Dashboard no Power BI para análise e acompanhamento dos projetos do Hospital Universitário da UFPI. Implementou processo completo de ETL, automatizando a transformação de dados que antes era feita manualmente e viabilizando a tomada de decisão baseada em dados pela equipe hospitalar.
+        </div>
+        <div class="tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">ETL</span>
+          <span class="tag">Data Analytics</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Desemburaca Teresina</div>
+          <div class="entry-date">Abr 2025 – Jun 2025</div>
+        </div>
+        <div class="entry-org">Projeto Acadêmico · iCEV – Instituto de Ensino Superior · Teresina, PI</div>
+        <div class="entry-desc">
+          Aplicação web e mobile com suporte offline (IndexedDB) para coleta de dados com imagem, persistência em PostgreSQL + PostGIS e integração com Google Drive. Solução voltada à realidade local de Teresina, com arquitetura que permite uso mesmo sem conexão à internet.
+        </div>
+        <div class="tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">Fastify</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">PostGIS</span>
+          <span class="tag">Google Drive API</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Simulador de Elevador</div>
+        </div>
+        <div class="entry-org">Projeto Acadêmico · Java</div>
+        <div class="entry-desc">
+          Simulador de elevadores para prédio industrial com múltiplos andares, desenvolvido em Java com estruturas de dados customizadas (listas, filas de prioridade, nós encadeados). Implementa três algoritmos de despacho: Normal (menor fila), Economia (menor consumo de energia) e Felicidade (menor tempo de espera). Desenvolvido em colaboração em tempo real via Code With Me do IntelliJ IDEA.
+        </div>
+        <div class="tags">
+          <span class="tag">Java</span>
+          <span class="tag">Estruturas de Dados</span>
+          <span class="tag">Algoritmos</span>
+          <span class="tag">Serialização</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICAÇÕES -->
+    <div style="page-break-before: always;">
+      <div class="section-title">Certificações</div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-text"><strong>AWS Academy Cloud Architecting</strong> · Amazon Web Services · Em andamento</div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-text"><strong>AWS Academy Cloud Foundations</strong> · Amazon Web Services · Mai 2026</div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-text"><strong>Microsoft Power BI para Business Intelligence e Data Science</strong> · Data Science Academy · Fev 2026</div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-text"><strong>Pre Security Certificate</strong> · TryHackMe · Out 2025</div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-text"><strong>Red Hat OpenShift Developer I: Containers with Podman (DO188)</strong> · Red Hat · Jun 2025</div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-text"><strong>Getting Started with Linux Fundamentals (RH104)</strong> · Red Hat · Jun 2024</div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div class="cert-text"><strong>Creating Java Programs with Greenfoot</strong> · Oracle</div></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
